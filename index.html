@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Productivity Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1> Productivity Dashboard</h1>
+
+  <!-- Task Manager -->
+  <div class="card">
+    <h2>Tasks</h2>
+    <input type="text" id="taskInput" placeholder="Enter task">
+    <button onclick="addTask()">Add</button>
+    <ul id="taskList"></ul>
+  </div>
+
+  <!-- Pomodoro Timer -->
+  <div class="card">
+    <h2>Pomodoro Timer</h2>
+    <p id="timer">25:00</p>
+    <button onclick="startTimer()">Start</button>
+  </div>
+
+  <!-- Daily Goal -->
+  <div class="card">
+    <h2>Today's Goal</h2>
+    <textarea id="goal" placeholder="Write your goal..."></textarea>
+  </div>
+
+  <!-- Dark Mode -->
+  <button onclick="toggleTheme()">🌙 Toggle Dark Mode</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
