@@ -10,7 +10,31 @@ h1 {
   padding: 20px;
   color: #333;
 }
+/* Remove default bullets */
+#taskList {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
 
+/* Style each task */
+#taskList li {
+  background: #1e1e1e;
+  color: #fff;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  border-bottom: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s;
+}
+
+/* Hover effect */
+#taskList li:hover {
+  background: #2a2a2a;
+}
 .card {
   background: white;
   margin: 20px auto;
