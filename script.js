@@ -20,9 +20,24 @@ function toggleTheme() {
 // Timer
 let time = 1500;
 let interval;
+let isRunning = false; // track state
+
+const alarmSound = new Audio("https://www.soundjay.com/buttons/sounds/beep-07.mp3");
 
 function startTimer() {
-  clearInterval(interval);
+  const btn = document.getElementById("startBtn");
+
+  // If already running → PAUSE
+  if (isRunning) {
+    clearInterval(interval);
+    isRunning = false;
+    btn.innerText = "Start";
+    return;
+  }
+
+  // If paused → RESUME
+  isRunning = true;
+  btn.innerText = "Pause";
 
   interval = setInterval(() => {
     time--;
@@ -32,6 +47,16 @@ function startTimer() {
 
     document.getElementById("timer").innerText =
       `${min}:${sec < 10 ? "0" : ""}${sec}`;
+
+    // Timer finished
+    if (time <= 0) {
+      clearInterval(interval);
+      isRunning = false;
+      btn.innerText = "Start";
+
+      alarmSound.play();
+      alert("⏰ Time's up!");
+    }
 
   }, 1000);
 }
