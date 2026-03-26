@@ -11,7 +11,17 @@ function addTask() {
 
   input.value = "";
 }
+function resetTimer() {
+  clearInterval(interval);   // stop timer
+  time = 1500;               // reset time (25 min)
+  isRunning = false;
 
+  // update display
+  document.getElementById("timer").innerText = "25:00";
+
+  // reset button text
+  document.getElementById("startBtn").innerText = "Start";
+}
 // Dark Mode
 function toggleTheme() {
   document.body.classList.toggle("dark");
