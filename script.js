@@ -11,7 +11,14 @@ function addTask() {
 
   input.value = "";
 }
+function clearAllTasks() {
+  const taskList = document.getElementById("taskList");
 
+  // Remove all child elements
+  while (taskList.firstChild) {
+    taskList.removeChild(taskList.firstChild);
+  }
+}
 // Dark Mode
 function toggleTheme() {
   document.body.classList.toggle("dark");
