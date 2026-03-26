@@ -21,6 +21,9 @@ function toggleTheme() {
 let time = 1500;
 let interval;
 
+// Create audio object
+const alarmSound = new Audio("https://www.soundjay.com/buttons/sounds/beep-07.mp3");
+
 function startTimer() {
   clearInterval(interval);
 
@@ -32,6 +35,16 @@ function startTimer() {
 
     document.getElementById("timer").innerText =
       `${min}:${sec < 10 ? "0" : ""}${sec}`;
+
+    // When timer ends
+    if (time <= 0) {
+      clearInterval(interval);
+
+      // Play sound
+      alarmSound.play();
+
+      alert("⏰ Time's up!");
+    }
 
   }, 1000);
 }
