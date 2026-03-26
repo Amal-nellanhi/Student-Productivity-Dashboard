@@ -20,7 +20,13 @@ h1 {
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   transition: transform 0.2s;
 }
-
+/* Input focus effect */
+input:focus, textarea:focus {
+  outline: none;
+  border: 2px solid #6c63ff;
+  box-shadow: 0 0 5px rgba(108, 99, 255, 0.6);
+  transition: 0.2s;
+}
 .card:hover {
   transform: scale(1.03);
 }
