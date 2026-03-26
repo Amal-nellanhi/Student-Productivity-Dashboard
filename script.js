@@ -11,7 +11,12 @@ function addTask() {
 
   input.value = "";
 }
-
+document.getElementById("taskInput").addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault(); // prevent form reload (if any)
+    addTask();
+  }
+});
 // Dark Mode
 function toggleTheme() {
   document.body.classList.toggle("dark");
