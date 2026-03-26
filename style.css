@@ -20,7 +20,38 @@ h1 {
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   transition: transform 0.2s;
 }
+body.dark {
+  background: #0a0a0f;
+  color: #e0e0ff;
+}
+body.dark .card {
+  background: #12121a;
+  border: 1px solid #1f1f2e;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+}
+body.dark button {
+  background: #0f172a;
+  color: #00f0ff;
+  border: 1px solid #00f0ff;
+  box-shadow: 0 0 8px #00f0ff;
+}
 
+body.dark button:hover {
+  background: #00f0ff;
+  color: #0a0a0f;
+  box-shadow: 0 0 15px #00f0ff;
+}
+body.dark input {
+  background: #0a0a0f;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+body.dark input:focus {
+  border-color: #ff00ff;
+  box-shadow: 0 0 8px #ff00ff;
+  outline: none;
+}
 .card:hover {
   transform: scale(1.03);
 }
