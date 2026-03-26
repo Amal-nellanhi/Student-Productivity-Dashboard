@@ -10,7 +10,10 @@ h1 {
   padding: 20px;
   color: #333;
 }
-
+/* Smooth transition for dark mode */
+body, .card {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 .card {
   background: white;
   margin: 20px auto;
