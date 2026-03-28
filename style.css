@@ -56,3 +56,6 @@ button:hover {
 .dark .card {
   background: #1e1e1e;
 }
+body, .card {
+  transition: background-color 0.9s ease, color 0.9s ease;
+}
