@@ -49,15 +49,43 @@ button:hover {
   background: #5548c8;
 }
 
-/* Dark Mode */
+/* --- Neon Tech Dark Mode --- */
 .dark {
-  background: #121212;
-  color: white;
+  background: #0d0e15; /* Deep, dark blue-black */
+  color: #e0e0e0;
 }
 
+/* Give the cards a glowing neon pink border */
 .dark .card {
-  background: #1e1e1e;
+  background: #151828;
+  border: 1px solid #ff007f;
+  box-shadow: 0 0 15px rgba(255, 0, 127, 0.4); 
 }
-body, .card {
-  transition: background-color 0.9s ease, color 0.9s ease;
+
+/* Make headers glow bright cyan */
+.dark h1 {
+  color: #00e5ff;
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.6);
+}
+
+/* Style inputs to match the dark theme */
+.dark input, .dark textarea {
+  background: #1a1d2d;
+  color: #00e5ff;
+  border: 1px solid #00e5ff;
+}
+
+/* Neon buttons that swap colors on hover! */
+.dark button {
+  background: transparent;
+  color: #00e5ff;
+  border: 2px solid #00e5ff;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+.dark button:hover {
+  background: #ff007f;
+  color: white;
+  border-color: #ff007f;
+  box-shadow: 0 0 20px rgba(255, 0, 127, 0.8);
 }
