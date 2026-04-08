@@ -15,10 +15,12 @@ h1 {
   background: white;
   margin: 20px auto;
   padding: 20px;
-  width: 320px;
+  width: 90%;          /* Added for responsiveness */
+  max-width: 320px;    /* Prevents it from getting too wide */
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   transition: transform 0.2s;
+  box-sizing: border-box; /* Ensures padding doesn't break the width */
 }
 
 .card:hover {
