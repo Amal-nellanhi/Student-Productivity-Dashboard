@@ -33,6 +33,12 @@ input, textarea {
   margin: 10px 0;
   border-radius: 8px;
   border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical; /* Prevents horizontal stretching */
+  min-height: 60px; 
 }
 
 button {
