@@ -35,3 +35,10 @@ function startTimer() {
 
   }, 1000);
 }
+
+document.querySelector('body').addEventListener('keydown',(amal)=>{
+  if(amal.key=='Enter'){
+    console.log('gay');
+    addTask();
+  }
+});
