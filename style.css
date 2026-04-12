@@ -76,6 +76,19 @@ ul#taskList li:hover {
   background-color: #f9f9f9;
 }
 
+ul#taskList li span {
+  cursor: pointer;
+  flex-grow: 1; /* Ensures the clickable area fills the row */
+  transition: all 0.3s ease;
+}
+
+/* The "Checked Off" state */
+.completed {
+  text-decoration: line-through;
+  color: #888;
+  opacity: 0.6;
+}
+
 /* Ensure the last item doesn't have a double border at the bottom */
 ul#taskList li:last-child {
   border-bottom: none;
@@ -89,6 +102,11 @@ ul#taskList li:last-child {
 
 .dark ul#taskList li:hover {
   background-color: #1a1d2d;
+}
+
+.dark .completed {
+  color: #555;
+  text-shadow: none; /* Removes the neon glow when finished */
 }
 
 /* Add visual feedback when typing */
