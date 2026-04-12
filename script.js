@@ -1,31 +1,47 @@
+// Add Task
+let tasks = [];
+
 function addTask() {
   let input = document.getElementById("taskInput");
   let taskList = document.getElementById("taskList");
+  
+  // Grab the value and trim whitespace
+  let taskValue = input.value.trim();
 
-  if (input.value.trim() === "") return;
+  // Combine both checks: prevent empty strings AND duplicates
+  if (taskValue === "" || tasks.includes(taskValue)) return;
 
   let li = document.createElement("li");
   
+  // From feat/enhance: Create span for the text
   let taskText = document.createElement("span");
-  taskText.innerText = input.value;
+  taskText.innerText = taskValue;
   
-  // --- New: Toggle Completed Class ---
+  // Toggle Completed Class
   taskText.onclick = function() {
     taskText.classList.toggle("completed");
   };
 
+  // From feat/enhance: Create delete button
   let deleteBtn = document.createElement("button");
   deleteBtn.innerHTML = "🗑️";
   deleteBtn.className = "delete-btn";
   
   deleteBtn.onclick = function() {
     li.remove();
+    // Fix: Remove the task from the array so it can be added again later
+    tasks = tasks.filter(t => t !== taskValue);
   };
 
+  // Append elements
   li.appendChild(taskText);
   li.appendChild(deleteBtn);
   taskList.appendChild(li);
 
+  // From main: Add to the tracking array
+  tasks.push(taskValue);
+  
+  // Clear input
   input.value = "";
 }
 
@@ -53,8 +69,15 @@ function startTimer() {
   }, 1000);
 }
 
-document.querySelector('#taskInput').addEventListener('keydown',(amal)=>{
-  if(amal.key=='Enter'){
+// Clear Tasks
+function clearTasks() {
+  document.querySelector('#taskList').innerHTML = "";
+  tasks = [];
+}
+
+// Enter Key Event Listener
+document.querySelector('#taskInput').addEventListener('keydown', (amal) => {
+  if (amal.key == 'Enter') {
     addTask();
   }
 });
