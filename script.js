@@ -1,13 +1,31 @@
 // Add Task
 function addTask() {
   let input = document.getElementById("taskInput");
+  let taskList = document.getElementById("taskList");
 
-  if (input.value === "") return;
+  if (input.value.trim() === "") return;
 
+  // 1. Create the <li> element
   let li = document.createElement("li");
-  li.innerText = input.value;
+  
+  // 2. Create a span for the text (helps with styling)
+  let taskText = document.createElement("span");
+  taskText.innerText = input.value;
 
-  document.getElementById("taskList").appendChild(li);
+  // 3. Create the Delete button
+  let deleteBtn = document.createElement("button");
+  deleteBtn.innerHTML = "🗑️";
+  deleteBtn.className = "delete-btn";
+  
+  // 4. Add the click event to remove the li
+  deleteBtn.onclick = function() {
+    li.remove();
+  };
+
+  // 5. Assemble and append
+  li.appendChild(taskText);
+  li.appendChild(deleteBtn);
+  taskList.appendChild(li);
 
   input.value = "";
 }
