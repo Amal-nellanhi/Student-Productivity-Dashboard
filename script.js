@@ -1,21 +1,49 @@
 // Add Task
-let tasks=[];
+let tasks = [];
+
+// Greeting
 let now = new Date();
 let hours = now.getHours();
-hours=19;
-document.querySelector('#amal').innerText= hours>18? 'Good Evening!': hours>12?'Good Afternoon!' : 'Good Morning!';
+document.querySelector('#amal').innerText =
+  hours > 18 ? 'Good Evening!' :
+  hours > 12 ? 'Good Afternoon!' :
+  'Good Morning!';
+
+// Sound
 let chime = new Audio("chime.mp3");
+
 function addTask() {
   let input = document.getElementById("taskInput");
-
-  if (input.value === "" || tasks.includes(input.value)) return;
+  let taskList = document.getElementById("taskList");
   
+  let taskValue = input.value.trim();
+
+  // Prevent empty + duplicate
+  if (taskValue === "" || tasks.includes(taskValue)) return;
+
   let li = document.createElement("li");
-  li.innerText = input.value;
-  tasks.push(input.value);
+  
+  let taskText = document.createElement("span");
+  taskText.innerText = taskValue;
+  
+  taskText.onclick = function() {
+    taskText.classList.toggle("completed");
+  };
 
-  document.getElementById("taskList").appendChild(li);
+  let deleteBtn = document.createElement("button");
+  deleteBtn.innerHTML = "🗑️";
+  deleteBtn.className = "delete-btn";
+  
+  deleteBtn.onclick = function() {
+    li.remove();
+    tasks = tasks.filter(t => t !== taskValue);
+  };
 
+  li.appendChild(taskText);
+  li.appendChild(deleteBtn);
+  taskList.appendChild(li);
+
+  tasks.push(taskValue);
   input.value = "";
 }
 
@@ -29,25 +57,26 @@ let time = 1500;
 let interval;
 
 function startTimer() {
-  btn=document.querySelector('#startpausebtn');
-  if(btn.innerText=='Start'){
-    btn.innerText='Pause';
-  }
-  else{
+  let btn = document.querySelector('#startpausebtn');
+
+  if (btn.innerText === 'Start') {
+    btn.innerText = 'Pause';
+  } else {
     clearInterval(interval);
-    btn.innerText="Start";
+    btn.innerText = "Start";
     return;
   }
 
   interval = setInterval(() => {
-    if(time<=0){
+    if (time <= 0) {
       chime.play();
-      time= 1500;
-      document.querySelector('#timer').innerText='25:00';
-      document.querySelector('#startpausebtn').innerText='Start';
+      time = 1500;
+      document.querySelector('#timer').innerText = '25:00';
+      document.querySelector('#startpausebtn').innerText = 'Start';
       clearInterval(interval);
       return;
     }
+
     time--;
 
     let min = Math.floor(time / 60);
@@ -55,21 +84,26 @@ function startTimer() {
 
     document.getElementById("timer").innerText =
       `${min}:${sec < 10 ? "0" : ""}${sec}`;
-
   }, 1000);
 }
-function resetTimer(){
-  time=1500;
+
+// Reset Timer
+function resetTimer() {
+  time = 1500;
   clearInterval(interval);
-  document.querySelector('#startpausebtn').innerText='Start';
-  document.querySelector('#timer').innerText='25:00';
+  document.querySelector('#startpausebtn').innerText = 'Start';
+  document.querySelector('#timer').innerText = '25:00';
 }
-function clearTasks(){
-  document.querySelector('#taskList').innerHTML="";
-  tasks=[];
+
+// Clear Tasks
+function clearTasks() {
+  document.querySelector('#taskList').innerHTML = "";
+  tasks = [];
 }
-document.querySelector('#taskInput').addEventListener('keydown',(amal)=>{
-  if(amal.key=='Enter'){
+
+// Enter Key Event
+document.querySelector('#taskInput').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
     addTask();
   }
 });
