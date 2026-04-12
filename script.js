@@ -35,3 +35,9 @@ function startTimer() {
 
   }, 1000);
 }
+
+document.querySelector('#taskInput').addEventListener('keydown',(amal)=>{
+  if(amal.key=='Enter'){
+    addTask();
+  }
+});
