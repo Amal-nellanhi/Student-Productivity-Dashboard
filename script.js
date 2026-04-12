@@ -1,11 +1,13 @@
 // Add Task
+let tasks=[];
 function addTask() {
   let input = document.getElementById("taskInput");
 
-  if (input.value === "") return;
-
+  if (input.value === "" || tasks.includes(input.value)) return;
+  
   let li = document.createElement("li");
   li.innerText = input.value;
+  tasks.push(input.value);
 
   document.getElementById("taskList").appendChild(li);
 
