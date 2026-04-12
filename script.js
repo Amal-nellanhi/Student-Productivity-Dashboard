@@ -38,6 +38,10 @@ function startTimer() {
   }, 1000);
 }
 
+function clearTasks(){
+  document.querySelector('#taskList').innerHTML="";
+  tasks=[];
+}
 document.querySelector('#taskInput').addEventListener('keydown',(amal)=>{
   if(amal.key=='Enter'){
     addTask();
