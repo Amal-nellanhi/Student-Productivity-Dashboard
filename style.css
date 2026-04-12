@@ -36,6 +36,13 @@ input, textarea {
   box-sizing: border-box;
 }
 
+/* Add visual feedback when typing */
+input:focus, textarea:focus {
+  outline: none; /* Removes the default browser outline */
+  border-color: #6c63ff; /* Matches the Add/Start buttons */
+  box-shadow: 0 0 8px rgba(108, 99, 255, 0.3); /* Subtle purple glow */
+}
+
 textarea {
   resize: vertical; /* Prevents horizontal stretching */
   min-height: 60px; 
@@ -79,6 +86,13 @@ button:hover {
   background: #1a1d2d;
   color: #00e5ff;
   border: 1px solid #00e5ff;
+}
+
+/* Neon glow when typing in dark mode */
+.dark input:focus, .dark textarea:focus {
+  outline: none;
+  border-color: #ff007f; /* Changes to neon pink when active */
+  box-shadow: 0 0 15px rgba(255, 0, 127, 0.6); 
 }
 
 /* Neon buttons that swap colors on hover! */
