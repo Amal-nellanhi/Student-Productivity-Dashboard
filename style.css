@@ -36,6 +36,41 @@ input, textarea {
   box-sizing: border-box;
 }
 
+/* Clean up the Task List container */
+ul#taskList {
+  list-style-type: none; /* Removes default bullet points */
+  padding: 0;            /* Removes default indentation */
+  margin: 20px 0 0 0;    /* Adds space between the input and the list */
+}
+
+/* Style individual tasks as distinct rows */
+ul#taskList li {
+  padding: 12px;
+  border-bottom: 1px solid #eee; /* Subtle separator line */
+  text-align: left;              /* Aligns text for better readability */
+  transition: background 0.2s;   /* Smooth transition for the hover effect */
+}
+
+/* Optional: Add a hover effect to rows for better UX */
+ul#taskList li:hover {
+  background-color: #f9f9f9;
+}
+
+/* Ensure the last item doesn't have a double border at the bottom */
+ul#taskList li:last-child {
+  border-bottom: none;
+}
+
+/* --- Dark Mode adjustment for list items --- */
+.dark ul#taskList li {
+  border-bottom: 1px solid #2a2d3e;
+  color: #e0e0e0;
+}
+
+.dark ul#taskList li:hover {
+  background-color: #1a1d2d;
+}
+
 /* Add visual feedback when typing */
 input:focus, textarea:focus {
   outline: none; /* Removes the default browser outline */
