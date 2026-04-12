@@ -144,3 +144,18 @@ button:hover {
   border-color: #ff007f;
   box-shadow: 0 0 20px rgba(255, 0, 127, 0.8);
 }
+
+footer {
+  margin-top: 40px;      /* Pushes footer away from the content */
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #555;           /* Subtle grey for the light theme */
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure the footer text is visible and themed in Dark Mode */
+.dark footer {
+  color: #00e5ff;
+  border-top: 1px solid rgba(0, 229, 255, 0.2);
+  text-shadow: 0 0 5px rgba(0, 229, 255, 0.3);
+}
