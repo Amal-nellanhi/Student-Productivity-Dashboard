@@ -7,7 +7,7 @@
 </head>
 <body>
 
-  <h1> Productivity Dashboard</h1>
+  <h1 id="amal"> Productivity Dashboard</h1>
 
   <!-- Task Manager -->
   <div class="card">
@@ -22,7 +22,8 @@
   <div class="card">
     <h2>Pomodoro Timer</h2>
     <p id="timer">25:00</p>
-    <button onclick="startTimer()">Start</button>
+    <button id="startpausebtn" onclick="startTimer()">Start</button>
+    <button onclick="resetTimer()">Reset</button>
   </div>
 
   <!-- Daily Goal -->
